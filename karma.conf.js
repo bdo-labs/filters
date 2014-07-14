@@ -30,11 +30,12 @@ module.exports = function(config) {
 
 		browserify: {
 			files: [
-				'lib/**/*.js',
+				'lib/index.js',
 			],
 			transform: [
 				'partialify'
-			]
+			],
+			debug: true
 		},
 
 
