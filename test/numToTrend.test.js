@@ -1,4 +1,4 @@
-describe('The timeInterval filter', function () {
+describe('The numToTrend filter', function () {
 	beforeEach(module('filters'));
 
 	var numToTrendFilter;
