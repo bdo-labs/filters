@@ -24,11 +24,11 @@ describe('The timeInterval filter', function () {
 	});
 
 	it('should identify a small positive value as an upward trend', function () {
-		expect(numToTrendFilter(0.0003)).toEqual('up');
+		expect(numToTrendFilter(Number.MIN_VALUE)).toEqual('up');
 	});
 
 	it('should identify a large positive value as an upward trend', function () {
-		expect(numToTrendFilter(3000000)).toEqual('up');
+		expect(numToTrendFilter(Number.MAX_VALUE)).toEqual('up');
 	});
 
 	it('should identify a value of -1 as a downward trend', function () {
@@ -36,10 +36,10 @@ describe('The timeInterval filter', function () {
 	});
 
 	it('should identify a small negative value as a downward trend', function () {
-		expect(numToTrendFilter(-0.0002)).toEqual('down');
+		expect(numToTrendFilter(-(Number.MIN_VALUE))).toEqual('down');
 	});
 
 	it('should identify a large negative value as a downward trend', function () {
-		expect(numToTrendFilter(-2000000)).toEqual('down');
+		expect(numToTrendFilter(-(Number.MIN_VALUE))).toEqual('down');
 	});
 });
