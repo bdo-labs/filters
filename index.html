@@ -6,9 +6,20 @@
 		<meta charset="utf-8" />
 
 		<script src="build.js"></script>
+		<script>
+			function getFilter(name) {
+				return angular.element(document.body).injector().get('$filter')(name);
+			}
+		</script>
 	</head>
 
 	<body ng-app="filters">
+	<h1>Test page for filters</h1>
+		<p>Open the console and fetch your filter using the helper function:</p>
+		<pre><code>var myFilter = getFilter('myFilter');</code></pre>
+		<p>The returned filter is a function and can be invoced a such for
+		testing:</p>
+		<pre><code>myFilter('input', 'arg1', 'arg2', ...);</code></pre>
 	</body>
 
 </html>
