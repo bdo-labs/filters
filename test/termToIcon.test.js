@@ -17,5 +17,5 @@ describe('The termToIcon filter', function () {
 
 	it('should return an empty string for unsupported terms', function () {
 		expect(termToIconFilter('unsupported term')).toEqual('');
-	});	
+	});
 });
