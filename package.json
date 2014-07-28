@@ -15,7 +15,7 @@
     }
   },
   "browserify": {
-    "transforms": [
+    "transform": [
       "partialify"
     ]
   },
