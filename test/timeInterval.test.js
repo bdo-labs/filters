@@ -12,17 +12,31 @@ describe('The timeInterval filter', function () {
 		expect(timeIntervalFilter).not.toBeNull();
 	});
 
-	it('should convert one hour in milliseconds to one hour', function () {
-		expect(timeIntervalFilter(3600000)).toEqual('hver time');
+	it('should handle single hour', function () {
+		expect(timeIntervalFilter('PT1H')).toBe('hver time');
 	});
+
+	it('should handle several months', function () {
+		expect(timeIntervalFilter('P11M')).toBe('hver 11. måned');
+	});
+
+	it('should handle decimals', function () {
+		expect(timeIntervalFilter('P11.1M')).toBe('hver 11. måned');
+	});
+
 
 	it('should be able to handle big numbers', function () {
-		expect(timeIntervalFilter(Number.MAX_VALUE)).toEqual('hvert 5.700447535712568e+297. år');
+		expect(timeIntervalFilter('P20000Y')).toBe('hvert 20000. år');
 	});
 
-	it('should throw exception on negative numbers', function () {
+	it('should silently ignore invalid input', function () {
 		expect(function () {
 			timeIntervalFilter(-1);
-		}).toThrow();
+			timeIntervalFilter('anoehu');
+			timeIntervalFilter();
+		}).not.toThrow();
+
+		expect(timeIntervalFilter(12)).toBe('');
+		expect(timeIntervalFilter()).toBe('');
 	});
 });
