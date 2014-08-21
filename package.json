@@ -8,11 +8,13 @@
   "scripts": {
     "start": "atomify --server [ --path index.html --open ] --sync",
     "build": "atomify",
+    "clean": "rm -fr build",
     "test": "karma start"
   },
   "atomify": {
     "js": {
       "entry": "lib/index.js",
+      "alias": "build.js",
       "output": "build/build.js"
     }
   },

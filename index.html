@@ -1,25 +1,54 @@
-<!doctype html>
-
+<!DOCTYPE html>
 <html>
-	<head>
-		<title>Test page for filters</title>
-		<meta charset="utf-8" />
+  <head>
+    <meta charset="utf-8" />
+    <title>Test page for filters</title>
+    <script src="build.js"></script>
+    <script>
+      function getFilter(name) {
+        return angular
+          .element(document.body)
+          .injector()
+          .get('$filter')(name);
+      }
+    </script>
+    <style>
+      html {
+        font-size: 62.5%;
+      }
+      body {
+        box-sizing: border-box;
+        color: rgb(130,130,130);
+        font-family: Helvetica Neue, Helvetica;
+        font-size: 1.4em;
+        line-height: 1.6em;
+        padding: 10em;
+      }
+      pre {
+        background-color: rgb(170,220,190);
+        border-radius: .2em;
+        color: rgb(80,140,110);
+        display: inline-block;
+        padding: .5em 1em;
+        min-width: 35em;
+      }
+    </style>
+  </head>
+  <body ng-app="filters">
 
-		<script src="build.js"></script>
-		<script>
-			function getFilter(name) {
-				return angular.element(document.body).injector().get('$filter')(name);
-			}
-		</script>
-	</head>
+    <h1>Test page for filters</h1>
 
-	<body ng-app="filters">
-	<h1>Test page for filters</h1>
-		<p>Open the console and fetch your filter using the helper function:</p>
-		<pre><code>var myFilter = getFilter('myFilter');</code></pre>
-		<p>The returned filter is a function and can be invoced a such for
-		testing:</p>
-		<pre><code>myFilter('input', 'arg1', 'arg2', ...);</code></pre>
-	</body>
+    <p>
+      Open the console and fetch your filter using
+      the helper function:
+    </p>
+    <pre><code>var myFilter = getFilter('myFilter');</code></pre>
 
+    <p>
+      The returned filter is a function and can be
+      invoked a such for testing:
+    </p>
+    <pre><code>myFilter('input', 'arg1', 'arg2', ...);</code></pre>
+
+  </body>
 </html>
