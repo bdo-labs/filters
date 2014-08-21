@@ -6,6 +6,8 @@
   "repository": "git://github.com/bdo-labs/filters.git",
   "license": "MIT",
   "scripts": {
+    "start": "atomify --server [ --path index.html --open ] --sync",
+    "build": "atomify",
     "test": "karma start"
   },
   "atomify": {
